@@ -631,5 +631,5 @@ NODE_CLASS_MAPPINGS = {
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "FramePackSampler_F1": "FramePackSampler (F1)",
-    "FramePackTimestampedTextEncode": "FramePack Text Encode (Timestamped)",
+    "FramePackTimestampedTextEncode": "FramePack Text Encode (Enhanced)",
 }
