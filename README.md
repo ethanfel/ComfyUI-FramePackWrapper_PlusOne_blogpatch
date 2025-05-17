@@ -51,7 +51,7 @@ pip install -r requirements.txt
 
 ### Example Workflow
 
-![Example Workflow](workflow_example.png)
+![image](https://github.com/user-attachments/assets/e7ba12b5-41ef-484b-a796-801b701628a5)
 
 ### Timestamped Prompts
 
