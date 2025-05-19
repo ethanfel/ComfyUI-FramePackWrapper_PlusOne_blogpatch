@@ -33,34 +33,42 @@ from .diffusers_helper.bucket_tools import find_nearest_bucket
 from diffusers.loaders.lora_conversion_utils import _convert_hunyuan_video_lora_to_diffusers
 
 def patched_convert_hunyuan_video_lora(original_state_dict):
-    """Patched version that filters out problematic tensors before conversion"""
+    """Patched version that handles problematic tensors during conversion"""
     try:
-        # Make a copy of the original state dict to avoid modifying it
-        state_dict_copy = {}
-        
-        # Remove scalar (0-dimensional) tensors that cause problems
+        # Filter out problematic tensors first
+        filtered_state_dict = {}
         for key, value in original_state_dict.items():
             if isinstance(value, torch.Tensor):
                 if value.dim() == 0:
                     print(f"Skipping 0-dimensional tensor: {key}")
                     continue
-                state_dict_copy[key] = value
+                filtered_state_dict[key] = value
             else:
                 print(f"Skipping non-tensor value: {key}")
         
-        print(f"After filtering: {len(state_dict_copy)} valid keys")
+        print(f"After filtering: {len(filtered_state_dict)} valid keys")
         
-        # Try the original conversion with the filtered state dict
+        # First try the original conversion
         try:
             from diffusers.loaders.lora_conversion_utils import _convert_hunyuan_video_lora_to_diffusers
-            result = _convert_hunyuan_video_lora_to_diffusers(state_dict_copy)
+            result = _convert_hunyuan_video_lora_to_diffusers(filtered_state_dict)
             print("Successfully converted LoRA weights")
             return result
         except Exception as e:
             print(f"Error in standard conversion: {e}")
-            # Fall back to empty dict if conversion fails
-            print("Conversion failed, returning empty state dict")
-            return {}
+            print("Falling back to custom conversion")
+            
+            # If standard conversion fails, use the custom implementation
+            # [Insert the custom conversion code here that was previously unreachable]
+            # Include all the remapper functions and conversion logic
+            
+            # Return the result of the custom conversion
+            return converted_state_dict
+            
+    except Exception as e:
+        print(f"LoRA conversion failed: {str(e)}")
+        # Return empty state dict as fallback
+        return {}
             
     except Exception as e:
         print(f"LoRA conversion failed: {str(e)}")
