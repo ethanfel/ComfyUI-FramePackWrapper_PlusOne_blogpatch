@@ -1,4 +1,16 @@
 # ComfyUI-FramePackWrapper_PlusOne
+
+[ComfyUI-FramePackWrapper_PlusOne](https://github.com/tori29umai0123/ComfyUI-FramePackWrapper_PlusOne) is a fork by @tori29umai0123 derived from [ComfyUI-FramePackWrapper](https://github.com/kijai/ComfyUI-FramePackWrapper) and [ComfyUI-FramePackWrapper_Plus](https://github.com/ShmuelRonen/ComfyUI-FramePackWrapper_Plus/tree/main), which includes a 1-frame inference node for FramePack (compatible with kisekaeichi). This repository was forked for public release at the request of @tori29umai0123.
+
+<details>
+<summary>日本語</summary>
+
+[ComfyUI-FramePackWrapper_PlusOne](https://github.com/tori29umai0123/ComfyUI-FramePackWrapper_PlusOne) は、[ComfyUI-FramePackWrapper](https://github.com/kijai/ComfyUI-FramePackWrapper)および[ComfyUI-FramePackWrapper_Plus](https://github.com/ShmuelRonen/ComfyUI-FramePackWrapper_Plus/tree/main)から派生した、 @tori29umai0123 氏によるFramePackの1フレーム推論ノード(kisekaeichi対応)を含むフォーク
+です。本リポジトリは、 @tori29umai0123 氏の依頼を受けて公開用にフォークしました。
+</details>
+
+---
+
 This repository is derived from [ComfyUI-FramePackWrapper_Plus](https://github.com/ShmuelRonen/ComfyUI-FramePackWrapper_Plus/tree/main) and was created for my own use. I have little intention to maintain it. Please feel free to improve it, especially Framepack 1f-mc.
 
 An improved wrapper for the FramePack project that allows the creation of videos of any length based on reference images and LoRAs with F1 sampler.
