@@ -49,6 +49,7 @@ ComfyUI/custom_nodes/ComfyUI_essentials: COMMIT = 9d9f4bedfc9f0321c19faf71855e22
 $(custom_nodes): ComfyUI
 	git -C $@ rev-parse HEAD || git clone $(REPO) $@
 	git -C $@ checkout $(COMMIT)
+	test -f $@/requirements.txt && ComfyUI/.venv/bin/pip install -r $@/requirements.txt || true
 
 models = \
 	$(MODEL_PATH)/diffusion_models/FramePackI2V_HY_fp8_e4m3fn.safetensors \
@@ -58,7 +59,8 @@ models = \
 	$(MODEL_PATH)/text_encoders/llava_llama3_fp16.safetensors \
 	$(MODEL_PATH)/text_encoders/llava_llama3_fp8_scaled.safetensors \
 	$(MODEL_PATH)/vae/hunyuan_video_vae_bf16.safetensors \
-	$(MODEL_PATH)/loras/framepack/body2img_V7_kisekaeichi_dim4_1e-3_512_768-000140.safetensors
+	$(MODEL_PATH)/loras/framepack/body2img_V7_kisekaeichi_dim4_1e-3_512_768-000140.safetensors \
+	$(MODEL_PATH)/loras/framepack/fp-1f-chibi-1024.safetensors
 
 ## diffusion_models
 $(MODEL_PATH)/diffusion_models/FramePackI2V_HY_fp8_e4m3fn.safetensors: REPO = Kijai/HunyuanVideo_comfy
@@ -84,6 +86,8 @@ $(MODEL_PATH)/vae/hunyuan_video_vae_bf16.safetensors: FILE = split_files/vae/hun
 ## loras
 $(MODEL_PATH)/loras/framepack/body2img_V7_kisekaeichi_dim4_1e-3_512_768-000140.safetensors: REPO = tori29umai/FramePack_LoRA
 $(MODEL_PATH)/loras/framepack/body2img_V7_kisekaeichi_dim4_1e-3_512_768-000140.safetensors: FILE = body2img_V7_kisekaeichi_dim4_1e-3_512_768-000140.safetensors
+$(MODEL_PATH)/loras/framepack/fp-1f-chibi-1024.safetensors: REPO = kohya-ss/misc-models
+$(MODEL_PATH)/loras/framepack/fp-1f-chibi-1024.safetensors: FILE = fp-1f-chibi-1024.safetensors
 
 $(models):
 	uvx --from "huggingface_hub[cli]" huggingface-cli download $(REPO) $(FILE) --local-dir $(TMP)/$(REPO)
