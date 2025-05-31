@@ -21,10 +21,6 @@ ComfyUI/.venv: ComfyUI
 	ComfyUI/.venv/bin/pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
 	ComfyUI/.venv/bin/pip install -r ComfyUI/requirements.txt
 
-ComfyUI/custom_nodes/ComfyUI-FramePackWrapper_PlusOne: ComfyUI/.venv
-	git -C $@ pull || git clone . $@
-	ComfyUI/.venv/bin/pip install -r $@/requirements.txt
-
 custom_nodes = \
 	ComfyUI/custom_nodes/ComfyUI-FramePackWrapper_PlusOne \
 	ComfyUI/custom_nodes/comfyui-get-meta \
