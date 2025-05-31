@@ -60,6 +60,7 @@ models = \
 	$(MODEL_PATH)/text_encoders/llava_llama3_fp8_scaled.safetensors \
 	$(MODEL_PATH)/vae/hunyuan_video_vae_bf16.safetensors \
 	$(MODEL_PATH)/loras/framepack/body2img_V7_kisekaeichi_dim4_1e-3_512_768-000140.safetensors \
+	$(MODEL_PATH)/loras/framepack/Apose_V7_dim4.safetensors \
 	$(MODEL_PATH)/loras/framepack/fp-1f-chibi-1024.safetensors
 
 ## diffusion_models
@@ -86,6 +87,8 @@ $(MODEL_PATH)/vae/hunyuan_video_vae_bf16.safetensors: FILE = split_files/vae/hun
 ## loras
 $(MODEL_PATH)/loras/framepack/body2img_V7_kisekaeichi_dim4_1e-3_512_768-000140.safetensors: REPO = tori29umai/FramePack_LoRA
 $(MODEL_PATH)/loras/framepack/body2img_V7_kisekaeichi_dim4_1e-3_512_768-000140.safetensors: FILE = body2img_V7_kisekaeichi_dim4_1e-3_512_768-000140.safetensors
+$(MODEL_PATH)/loras/framepack/Apose_V7_dim4.safetensors: REPO = tori29umai/FramePack_LoRA
+$(MODEL_PATH)/loras/framepack/Apose_V7_dim4.safetensors: FILE = Apose_V7_dim4.safetensors
 $(MODEL_PATH)/loras/framepack/fp-1f-chibi-1024.safetensors: REPO = kohya-ss/misc-models
 $(MODEL_PATH)/loras/framepack/fp-1f-chibi-1024.safetensors: FILE = fp-1f-chibi-1024.safetensors
 
