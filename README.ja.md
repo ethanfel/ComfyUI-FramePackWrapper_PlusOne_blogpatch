@@ -14,7 +14,7 @@
 - **解像度制御**: 最適な動画サイズのための自動バケット検出
 - **ブレンド制御**: タイムスタンプ間の異なるプロンプトのスムーズな遷移
 
-### Not yet supported
+### 未対応機能
 
 - 1フレーム推論のうち、f-mc (one frame multi-control) 方式は未対応です。
 
@@ -45,11 +45,11 @@ pip install -r requirements.txt
 - **CLIP Vision**: [sigclip_vision_384](https://huggingface.co/Comfy-Org/sigclip_vision_384/tree/main)
 - **Text Encoder and VAE**: [HunyuanVideo_repackaged](https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/tree/main/split_files)
 
-## Usage
+## 使用方法
 
 [example_workflows](./example_workflows)を参照ください。
 
-## License
+## ライセンス
 
 [MIT License](LICENSE)
 
