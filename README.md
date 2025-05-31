@@ -9,10 +9,6 @@
 です。本リポジトリは、 @tori29umai0123 氏の依頼を受けて公開用にフォークしました。
 </details>
 
----
-
-This repository is derived from [ComfyUI-FramePackWrapper_Plus](https://github.com/ShmuelRonen/ComfyUI-FramePackWrapper_Plus/tree/main) and was created for my own use. I have little intention to maintain it. Please feel free to improve it, especially Framepack 1f-mc.
-
 An improved wrapper for the FramePack project that allows the creation of videos of any length based on reference images and LoRAs with F1 sampler.
 
 ## Features
