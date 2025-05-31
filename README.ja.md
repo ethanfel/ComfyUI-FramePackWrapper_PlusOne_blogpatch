@@ -55,7 +55,7 @@ pip install -r requirements.txt
 
 ## クレジット
 
-- [FramePack](https://github.com/lllyasviel/Fooocus-FramePack): @lllyasviel 氏によるオリジナルの実装です。
+- [FramePack](https://github.com/lllyasviel/FramePack): @lllyasviel 氏によるオリジナルの実装です。
 - [ComfyUI-FramePackWrapper](https://github.com/kijai/ComfyUI-FramePackWrapper): @kijai 氏によるオリジナルの実装です。
 - [ComfyUI-FramePackWrapper_Plus](https://github.com/ShmuelRonen/ComfyUI-FramePackWrapper_Plus): @ShmuelRonen 氏によるF1対応のフォークです。
 - [ComfyUI-FramePackWrapper_PlusOne](https://github.com/tori29umai0123/ComfyUI-FramePackWrapper_PlusOne): @tori29umai0123 氏による1フレーム推論対応のフォークです。

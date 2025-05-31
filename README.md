@@ -57,7 +57,7 @@ See [example_workflows](./example_workflows).
 
 ## Credits
 
-- [FramePack](https://github.com/lllyasviel/Fooocus-FramePack): @lllyasviel's original implementation.
+- [FramePack](https://github.com/lllyasviel/FramePack): @lllyasviel's original implementation.
 - [ComfyUI-FramePackWrapper](https://github.com/kijai/ComfyUI-FramePackWrapper): @kijai's original implementation.
 - [ComfyUI-FramePackWrapper_Plus](https://github.com/ShmuelRonen/ComfyUI-FramePackWrapper_Plus): @ShmuelRonen's F1-supported fork.
 - [ComfyUI-FramePackWrapper_PlusOne](https://github.com/tori29umai0123/ComfyUI-FramePackWrapper_PlusOne): @tori29umai0123's 1-frame inference-supported fork.
