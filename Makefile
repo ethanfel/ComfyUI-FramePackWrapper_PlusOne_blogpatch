@@ -35,19 +35,19 @@ custom_nodes = \
 
 ComfyUI/custom_nodes/ComfyUI-FramePackWrapper_PlusOne: REPO = .
 ComfyUI/custom_nodes/ComfyUI-FramePackWrapper_PlusOne: COMMIT = $(shell git rev-parse HEAD)
-ComfyUI/custom_nodes/comfyui-get-meta: REPO = shinich39/comfyui-get-meta
+ComfyUI/custom_nodes/comfyui-get-meta: REPO = https://github.com/shinich39/comfyui-get-meta
 ComfyUI/custom_nodes/comfyui-get-meta: COMMIT = b1af205fed09a3a4e2257f208fee2c53ad27a96e
-ComfyUI/custom_nodes/ComfyUI-KJNodes: REPO = kijai/ComfyUI-KJNodes
+ComfyUI/custom_nodes/ComfyUI-KJNodes: REPO = https://github.com/kijai/ComfyUI-KJNodes
 ComfyUI/custom_nodes/ComfyUI-KJNodes: COMMIT = 5dcda71011870278c35d92ff77a677ed2e538f2d
-ComfyUI/custom_nodes/ComfyUI-LogicUtils: REPO = aria1th/ComfyUI-LogicUtils
+ComfyUI/custom_nodes/ComfyUI-LogicUtils: REPO = https://github.com/aria1th/ComfyUI-LogicUtils
 ComfyUI/custom_nodes/ComfyUI-LogicUtils: COMMIT = 60f8f1187c66ee544e09a85303e4140cf0bd0ff2
-ComfyUI/custom_nodes/ComfyUI-VideoHelperSuite: REPO = Kosinkadink/ComfyUI-VideoHelperSuite
+ComfyUI/custom_nodes/ComfyUI-VideoHelperSuite: REPO = https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite
 ComfyUI/custom_nodes/ComfyUI-VideoHelperSuite: COMMIT = a7ce59e381934733bfae03b1be029756d6ce936d
-ComfyUI/custom_nodes/ComfyUI_essentials: REPO = cubiq/ComfyUI_essentials
+ComfyUI/custom_nodes/ComfyUI_essentials: REPO = https://github.com/cubiq/ComfyUI_essentials
 ComfyUI/custom_nodes/ComfyUI_essentials: COMMIT = 9d9f4bedfc9f0321c19faf71855e228c93bd0dc9
 
 $(custom_nodes): ComfyUI
-	git -C $@ rev-parse HEAD || git clone https://github.com/$(REPO) $@
+	git -C $@ rev-parse HEAD || git clone $(REPO) $@
 	git -C $@ checkout $(COMMIT)
 
 models = \
