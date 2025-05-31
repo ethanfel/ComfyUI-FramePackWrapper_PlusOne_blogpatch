@@ -49,6 +49,10 @@ pip install -r requirements.txt
 
 [example_workflows](./example_workflows)を参照ください。
 
+| [1-Frame](./example_workflows/Oneframe.json) / [LoRA @tori29umai](https://huggingface.co/tori29umai/FramePack_LoRA/blob/main/Apose_V7_dim4.safetensors) | [1-Frame](./example_workflows/Oneframe.json) / [LoRA @kohya-ss](https://huggingface.co/kohya-ss/misc-models/blob/main/fp-1f-chibi-1024.safetensors) | [Kisekaeichi](./example_workflows/Oneframe_kisekaeichi.json) / [LoRA @tori29umai](https://huggingface.co/tori29umai/FramePack_LoRA/blob/main/body2img_V7_kisekaeichi_dim4_1e-3_512_768-000140.safetensors) |
+| --- | --- | --- |
+| ![kisekaeichi](./images/basic-apose.png) | ![chibi](./images/basic-chibi.png) | ![body2img](./images/kisekaeichi-body2img.png) |
+
 ## ライセンス
 
 [MIT License](LICENSE)
