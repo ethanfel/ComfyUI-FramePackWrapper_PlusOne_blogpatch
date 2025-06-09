@@ -331,7 +331,7 @@ class FramePackSingleFrameSampler:
                         )
                         input_mask_resized = input_mask_resized.to(
                             clean_latents_pre.device
-                        )[None, None, None, :, :]
+                        )[None, None, :, :]
                         clean_latents_pre = clean_latents_pre * input_mask_resized
                         print("入力画像マスクを適用しました")
                     except Exception as e:
@@ -368,7 +368,7 @@ class FramePackSingleFrameSampler:
                         )
                         reference_mask_resized = reference_mask_resized.to(
                             clean_latents_post.device
-                        )[None, None, None, :, :]
+                        )[None, None, :, :]
                         clean_latents_post = clean_latents_post * reference_mask_resized
                         print("参照画像マスクを適用しました")
                     except Exception as e:
