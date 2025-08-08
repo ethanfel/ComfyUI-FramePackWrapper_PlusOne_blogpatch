@@ -61,9 +61,13 @@ See [example_workflows](./example_workflows).
 
 ## Changelog
 
-### v2.0.0 - Full musubi-tuner Compatibility (2025-01-XX)
+### v2.0.0 - Full musubi-tuner Compatibility (2025-08-08)
 
 Achieved **complete compatibility with musubi-tuner specifications** to improve inference result consistency when using multiple reference images.
+
+#### 破壊的変更
+
+The `denoise_strength` of workflows created up to v0.0.2 may be reset to 0. After updating the node, please manually reset it to 1.0.
 
 #### Major Changes
 
