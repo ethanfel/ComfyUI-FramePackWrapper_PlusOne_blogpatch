@@ -59,9 +59,67 @@ See [example_workflows](./example_workflows).
 
 [MIT License](LICENSE)
 
+## Changelog
+
+### v2.0.0 - Full musubi-tuner Compatibility (2025-01-XX)
+
+Achieved **complete compatibility with musubi-tuner specifications** to improve inference result consistency when using multiple reference images.
+
+#### Major Changes
+
+**1. Improved Embedding Integration Method**
+- ❌ Previous: Weighted average integration (70% input image, 30% reference images)
+- ✅ **New:** musubi-tuner compatible processing (using first reference image embedding)
+
+**2. Unified Latent Combination Structure**
+- ❌ Previous: Separate management of input and reference images before combination
+- ✅ **New:** Direct control_latents combination following musubi-tuner specification
+  ```python
+  control_latents = [input_image, reference_image1, reference_image2, ..., zero_latent]
+  clean_latents = torch.cat(control_latents, dim=2)
+  ```
+
+**3. Optimized Mask Application Timing**
+- ❌ Previous: Individual application before latent combination
+- ✅ **New:** Mask application after clean_latents generation (musubi-tuner specification)
+
+**4. Dynamic Index Setting Processing**
+- ❌ Previous: Fixed clean_latent_indices configuration
+- ✅ **New:** Dynamic application of control_indices parameters
+  ```python
+  # control_index="0;7;8;9;10" → clean_latent_indices = [0, 7, 8, 9, 10]
+  while i < len(control_indices_list) and i < clean_latent_indices.shape[1]:
+      clean_latent_indices[:, i] = control_indices_list[i]
+  ```
+
+**5. Improved latent_indices Initialization**
+- ❌ Previous: ComfyUI-specific initialization method
+- ✅ **New:** musubi-tuner specification initialization
+  ```python
+  latent_indices = torch.zeros((1, 1), dtype=torch.int64)
+  latent_indices[:, 0] = latent_window_size  # default value
+  latent_indices[:, 0] = target_index        # parameter application
+  ```
+
+#### Expected Benefits
+
+- **Improved Inference Consistency**: Generate identical results to musubi-tuner with same reference images and parameters
+- **Stabilized Multi-Reference Processing**: More stable quality through accurate index management
+- **Parameter Compatibility**: Correct functionality of musubi-tuner's control_index and target_index parameters
+
+#### Technical Details
+
+This update ensures the following processing flow matches musubi-tuner completely:
+
+1. **Control Image Processing**: Sequential processing of multiple images specified by `--control_image_path`
+2. **Index Management**: Dynamic application of `--one_frame_inference="control_index=0;7;8;9;10,target_index=5"`
+3. **Embedding Processing**: Implementation simulating section-wise individual processing
+4. **Mask Application**: Unified mask processing after clean_latents construction
+
 ## Credits
 
 - [FramePack](https://github.com/lllyasviel/FramePack): @lllyasviel's original implementation.
 - [ComfyUI-FramePackWrapper](https://github.com/kijai/ComfyUI-FramePackWrapper): @kijai's original implementation.
 - [ComfyUI-FramePackWrapper_Plus](https://github.com/ShmuelRonen/ComfyUI-FramePackWrapper_Plus): @ShmuelRonen's F1-supported fork.
 - [ComfyUI-FramePackWrapper_PlusOne](https://github.com/tori29umai0123/ComfyUI-FramePackWrapper_PlusOne): @tori29umai0123's 1-frame inference-supported fork.
+- [musubi-tuner](https://github.com/kohya-ss/musubi-tuner): @kohya-ss's high-quality FramePack training and inference library
